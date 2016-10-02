@@ -42,4 +42,5 @@ class Result
     result = client[:result].insert_one({ competition: @competition, athlet: @athlet, value: @value })
     return result
   end
+
 end 
