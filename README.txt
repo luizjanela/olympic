@@ -135,3 +135,7 @@ This API is used to access and append game results of the Olympic Games.
 		"data" : ""
 	}
 
+
+==== Worklog ====
+
+Configuração geral do projeto. Instalação do Ruby e dependencias. Criacao dos 4 servicos porem sem valicoes gerais, apenas parte estrutural. 5h.
