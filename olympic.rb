@@ -6,44 +6,64 @@ require_relative 'competition'
 require_relative 'result'
 
 post '/competition/add/' do
-  params = JSON.parse(request.env["rack.input"].read)
+  begin
+    params = JSON.parse(request.env["rack.input"].read)
 
-  competition = Competition.new
-  competition.athlets = params["athlets"]
-  competition.name = params["name"]
-  competition.unit = params["unit"]
+    competition = Competition.new
+    competition.name = params["name"]
+    competition.unit = params["unit"]
+    competition.rounds = params["rounds"]
 
-  response = competition.save
-  "#{response.to_json}"
+    response = competition.save
+    "{\"result\":true, \"message\":\"Competition created.\", \"data\":#{response.to_json}}"
+
+  rescue Exception => e
+    "{\"result\":false, \"message\":\"#{e.message}\", \"data\":null}"
+  end
 end
 
 post '/competition/result/add/' do
-  params = JSON.parse(request.env["rack.input"].read)
+  begin
+    params = JSON.parse(request.env["rack.input"].read)
 
-  result = Result.new
-  result.athlet = params["athlet"]
-  result.competition = params["competition"]
-  result.value = params["value"]
+    result = Result.new
+    result.athlet = params["athlet"]
+    result.competition = params["competition"]
+    result.value = params["value"]
 
-  response = result.save
-  "#{response.to_json}"
+    response = result.save
+    "{\"result\":true, \"message\":\"Result added.\", \"data\":#{response.to_json}}"
+
+  rescue Exception => e
+    "{\"result\":false, \"message\":\"#{e.message}\", \"data\":null}"
+  end
 end
 
 post '/competition/finish/' do
-  params = JSON.parse(request.env["rack.input"].read)
+  begin
+    params = JSON.parse(request.env["rack.input"].read)
 
-  competition = Competition.new
-  competition.id = params['competition']
-  response = competition.finish
+    competition = Competition.new
+    competition.id = params['competition']
+    response = competition.finish
 
-  "#{response.to_json}"
+    "{\"result\":true, \"message\":\"Competition finished.\", \"data\":null}"
+
+  rescue Exception => e
+    "{\"result\":false, \"message\":\"#{e.message}\", \"data\":null}"
+  end
 end
 
 get '/competition/:id/ranking/' do
-  competition = Competition.new
-  competition.id = params['id']
+  begin
+    competition = Competition.new
+    competition.id = params['id']
 
-  response = competition.ranking
+    response = competition.ranking
 
-  "#{response.to_json}"
+    "{\"result\":true, \"message\":null, \"data\":#{response.to_json}}"
+
+  rescue Exception => e
+    "{\"result\":false, \"message\":\"#{e.message}\", \"data\":null}"
+  end
 end

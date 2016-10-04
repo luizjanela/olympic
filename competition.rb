@@ -3,6 +3,10 @@
 require 'json/ext'
 
 class Competition  
+
+  # Default size/qty of competition rounds
+  @rounds = 1
+
   def initialize
   end  
   
@@ -30,20 +34,20 @@ class Competition
     @unit = unit
   end
   
-  def athlets
-    @athlets
-  end
-  
-  def athlets=(athlets)
-    @athlets = athlets
-  end
-  
   def ended
     @ended
   end
   
   def ended=(ended)
     @ended = ended
+  end  
+
+  def rounds
+    @rounds
+  end
+  
+  def rounds=(rounds)
+    @rounds = rounds
   end
 
   def find
@@ -53,32 +57,45 @@ class Competition
 
     puts competition
 
-    @athlets = competition['athlets']
     @id = competition['id']
     @unit = competition['unit']
     @ended = competition['ended']
+    @rounds = competition['rounds']
 
     return competition
   end
 
   def finish
+    # Finishes the competition, no new result can be added
     client = Mongo::Client.new('mongodb://127.0.0.1:27017/olympic')
     result = client[:competition].update_one({_id: BSON::ObjectId(@id)},{"$set" => {ended: true}})
     return result
   end
 
   def save
+    # Save competition
     client = Mongo::Client.new('mongodb://127.0.0.1:27017/olympic')
-    result = client[:competition].insert_one({ name: @name, unit: @unit, athlets: @athlets })
-    return result
+    result = client[:competition].insert_one({ name: @name, unit: @unit, rounds: @rounds })
+    puts result
+    return { id: result.inserted_id.to_s, name: @name, unit: @unit, rounds: @rounds }
   end
   
   def ranking
-    # Read raking from MongoDB 
+    # Read ranking from MongoDB 
     client = Mongo::Client.new('mongodb://127.0.0.1:27017/olympic')
-    gameplay = client[:result].find({ competition: @id }).sort({ value: -1 }).first
+    ranking = client[:result].find({ competition: @id }).sort({ value: -1, _id: 1 })
+    puts ranking.to_a
 
-    puts gameplay
-    return gameplay
+    simplifiedRanking = {} # Defines a hash
+
+    ranking.to_a.each { |result|
+      puts result
+      if !simplifiedRanking[result['athlet']] || result['value'] > simplifiedRanking[result['athlet']]
+        simplifiedRanking[result['athlet']] = result['value']
+      end
+    }
+
+    puts simplifiedRanking.to_json
+    return simplifiedRanking
   end 
 end 
