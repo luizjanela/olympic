@@ -7,12 +7,11 @@ This API is used to access and append game results of the Olympic Games.
 
 ## Web Services
 
-###Competition Create
+1. Competition Create
 
-	URL
-	http://localhost/competition/add/ [POST]
+	* URL: http://localhost/competition/add/ [POST]
 
-	 Input JSON
+	* Input JSON
 	```
 	{
 		"name": "100m", // Competition name
@@ -21,7 +20,7 @@ This API is used to access and append game results of the Olympic Games.
 		"type" : "greater"|"lower" // Greater means that the greater value wins. Lower means the minimum value wins
 	}
 	```
-	 Output JSON
+	* Output JSON
 	```
 	{
 		"result": true,
@@ -34,7 +33,7 @@ This API is used to access and append game results of the Olympic Games.
 		}
 	}
 	```
-	 Error GENERAL_ERROR Output JSON
+	* Error GENERAL_ERROR Output JSON
 	```
 	{
 		"result": false,
