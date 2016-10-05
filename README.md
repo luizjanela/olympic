@@ -1,24 +1,24 @@
-###### OLYMPIC GAMES API ######
-by Luiz Janela
+# Olympic Games API
 
-==== Purpose ====
+## Purpose 
 
 This API is used to access and append game results of the Olympic Games.
 
 
-==== Web Services ====
+## Web Services ====
 
 1. Competition Create
 	Creates a Competition.
-
 	URL: http://localhost/competition/add/ [POST]
 	Input JSON:
+	```
 	{
 		"name": "100m", // Competition name
 		"unit" : "s", // Unit name of the competition (seconds, minutes, goals ...)
 		"rounds" : 3 // Integer that specifies the quantity of rounds. Always will look for the greater result "values"
 		"type" : "greater"|"lower" // Greater means that the greater value wins. Lower means the minimum value wins
 	}
+	```
 	Output JSON:
 	{
 		"result": true,
@@ -113,13 +113,14 @@ This API is used to access and append game results of the Olympic Games.
 	}
 
 
-==== Worklog ====
+## Worklog
 
 1. Ruby + GIT + Mongo + Sinatra configuration. Basic and mocked services created. 5h @ 2016/10/01
 2. Fixes in services responses. Multiples rounds feature. Best results ranking. Documentation improvements. 2:30h @ 2016/10/03
+3. "Lower wins" competition type. Documentation tuning. 1h @ 2016/10/04
 
 
-==== Backlog / Improvements ====
+## Backlog / Improvements
 
 - Specify exceptions for each situations.
 - Create a data access layer to use a cache application for example.
