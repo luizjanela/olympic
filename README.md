@@ -44,7 +44,7 @@ This API is used to access and append game results of the Olympic Games.
 	}
 	```
 
-###Competition Athlet Result Add. Appends new Result of an Athlete in a Competition.
+2. Competition Athlet Result Add. Appends new Result of an Athlete in a Competition.
 
 	* http://localhost/competition/result/add/ [POST]
 
@@ -93,7 +93,7 @@ This API is used to access and append game results of the Olympic Games.
 	}
 	```
 
-###End Competition. No new Result can be added. 
+3. End Competition. No new Result can be added. 
 
 	* http://localhost/competition/finish/ [POST]
 
@@ -122,7 +122,7 @@ This API is used to access and append game results of the Olympic Games.
 	}
 	```
 
-###Competition Ranking. Reads the Ranking of the Athletes in a Competition.
+4. Competition Ranking. Reads the Ranking of the Athletes in a Competition.
 
 	* http://localhost/competition/{id}/ranking/ [GET]
 	
