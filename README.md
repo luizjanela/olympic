@@ -7,7 +7,8 @@ This API is used to access and append game results of the Olympic Games.
 
 ## Web Services
 
-###1. Competition Create
+###Competition Create
+
 	URL
 	http://localhost/competition/add/ [POST]
 
@@ -42,7 +43,7 @@ This API is used to access and append game results of the Olympic Games.
 	}
 	```
 
-###2. Competition Result Add. Appends new Result of an Athlete in a Competition.
+###Competition Athlet Result Add. Appends new Result of an Athlete in a Competition.
 
 	URL
 	http://localhost/competition/result/add/ [POST]
@@ -88,7 +89,7 @@ This API is used to access and append game results of the Olympic Games.
 	}
 	```
 
-###3. End Competition. No new Result can be added. 
+###End Competition. No new Result can be added. 
 	URL
 	http://localhost/competition/finish/ [POST]
 	Input JSON
@@ -114,7 +115,7 @@ This API is used to access and append game results of the Olympic Games.
 	}
 	```
 
-###4. Competition Ranking. Reads the Ranking of the Athletes in a Competition.
+###Competition Ranking. Reads the Ranking of the Athletes in a Competition.
 	URL
 	http://localhost/competition/{id}/ranking/ [GET]
 	Output JSON
