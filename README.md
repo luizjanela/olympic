@@ -8,10 +8,10 @@ This API is used to access and append game results of the Olympic Games.
 ## Web Services
 
 ###1. Competition Create
-	####URL
+	URL
 	http://localhost/competition/add/ [POST]
 
-	#### Input JSON
+	 Input JSON
 	```
 	{
 		"name": "100m", // Competition name
@@ -20,7 +20,7 @@ This API is used to access and append game results of the Olympic Games.
 		"type" : "greater"|"lower" // Greater means that the greater value wins. Lower means the minimum value wins
 	}
 	```
-	#### Output JSON
+	 Output JSON
 	```
 	{
 		"result": true,
@@ -33,7 +33,7 @@ This API is used to access and append game results of the Olympic Games.
 		}
 	}
 	```
-	#### Error GENERAL_ERROR Output JSON
+	 Error GENERAL_ERROR Output JSON
 	```
 	{
 		"result": false,
@@ -44,10 +44,10 @@ This API is used to access and append game results of the Olympic Games.
 
 ###2. Competition Result Add. Appends new Result of an Athlete in a Competition.
 
-	####URL
+	URL
 	http://localhost/competition/result/add/ [POST]
 
-	####Input JSON
+	Input JSON
 	```
 	{
 		"competition": "1233", // Competition Id returned in create
@@ -55,7 +55,7 @@ This API is used to access and append game results of the Olympic Games.
 		"value" : 10.03 // Float value of the result athlete made
 	}
 	```
-	####Output JSON
+	Output JSON
 	```
 	{
 		"result": true,
@@ -63,7 +63,7 @@ This API is used to access and append game results of the Olympic Games.
 		"data" : null
 	}
 	```
-	####Error COMPETITION_ENDED Output JSON
+	Error COMPETITION_ENDED Output JSON
 	```
 	{
 		"result": false,
@@ -71,7 +71,7 @@ This API is used to access and append game results of the Olympic Games.
 		"data" : null
 	}
 	```
-	####Error ROUNDS_EXCEDDED Output JSON
+	Error ROUNDS_EXCEDDED Output JSON
 	```
 	{
 		"result": false,
@@ -79,7 +79,7 @@ This API is used to access and append game results of the Olympic Games.
 		"data" : null
 	}
 	```
-	####Error GENERAL_ERROR Output JSON
+	Error GENERAL_ERROR Output JSON
 	```
 	{
 		"result": false,
@@ -89,15 +89,15 @@ This API is used to access and append game results of the Olympic Games.
 	```
 
 ###3. End Competition. No new Result can be added. 
-	####URL
+	URL
 	http://localhost/competition/finish/ [POST]
-	####Input JSON
+	Input JSON
 	```
 	{
 		"competition": "1233" // Competition Id returned in create
 	}
 	```
-	####Output JSON
+	Output JSON
 	```
 	{
 		"result": true,
@@ -105,7 +105,7 @@ This API is used to access and append game results of the Olympic Games.
 		"data" : null
 	}
 	```
-	####Error GENERAL_ERROR Output JSON
+	Error GENERAL_ERROR Output JSON
 	```
 	{
 		"result": false,
@@ -115,9 +115,9 @@ This API is used to access and append game results of the Olympic Games.
 	```
 
 ###4. Competition Ranking. Reads the Ranking of the Athletes in a Competition.
-	####URL
+	URL
 	http://localhost/competition/{id}/ranking/ [GET]
-	####Output JSON
+	Output JSON
 	```
 	{
 		"result": true,
@@ -129,7 +129,7 @@ This API is used to access and append game results of the Olympic Games.
 		}
 	}
 	```
-	####Error GENERAL_ERROR Output JSON
+	Error GENERAL_ERROR Output JSON
 	```
 	{
 		"result": false,
