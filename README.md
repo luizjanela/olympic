@@ -5,12 +5,13 @@
 This API is used to access and append game results of the Olympic Games.
 
 
-## Web Services ====
+## Web Services
 
 1. Competition Create
 	Creates a Competition.
 	URL: http://localhost/competition/add/ [POST]
-	Input JSON:
+
+	### Input JSON
 	```
 	{
 		"name": "100m", // Competition name
@@ -19,7 +20,8 @@ This API is used to access and append game results of the Olympic Games.
 		"type" : "greater"|"lower" // Greater means that the greater value wins. Lower means the minimum value wins
 	}
 	```
-	Output JSON:
+	### Output JSON
+	```
 	{
 		"result": true,
 		"message" : "Competition created.",
@@ -30,72 +32,90 @@ This API is used to access and append game results of the Olympic Games.
 			"unit" : "s"
 		}
 	}
-	Error GENERAL_ERROR Output JSON:
+	```
+	### Error GENERAL_ERROR Output JSON
+	```
 	{
 		"result": false,
 		"message" : "{Exception message}.",
 		"data" : ""
-	}
+	}```
 
 2. Competition Result Add
 	Appends new Result of an Athlete in a Competition.
 
 	URL: http://localhost/competition/result/add/ [POST]
-	Input JSON:
+	###Input JSON
+	```
 	{
 		"competition": "1233", // Competition Id returned in create
 		"athlete" : "1234", // Athlete Id returned in create
 		"value" : 10.03 // Float value of the result athlete made
 	}
-	Output JSON:
+	```
+	###Output JSON
+	```
 	{
 		"result": true,
 		"message" : "Result added.",
 		"data" : null
 	}
-	Error COMPETITION_ENDED Output JSON:
+	```
+	###Error COMPETITION_ENDED Output JSON
+	```
 	{
 		"result": false,
 		"message" : "Competition already ended.",
 		"data" : null
 	}
-	Error ROUNDS_EXCEDDED Output JSON:
+	```
+	###Error ROUNDS_EXCEDDED Output JSON
+	```
 	{
 		"result": false,
 		"message" : "All rounds of this athlet already have been played.",
 		"data" : null
 	}
-	Error GENERAL_ERROR Output JSON:
+	```
+	###Error GENERAL_ERROR Output JSON
+	```
 	{
 		"result": false,
 		"message" : "{Exception message}.",
 		"data" : null
 	}
+	```
 
 3. End Competition
 	Ends a Competition. No new Result can be added. 
 	URL: http://localhost/competition/finish/ [POST]
-	Input JSON:
+	###Input JSON
+	```
 	{
 		"competition": "1233" // Competition Id returned in create
-	}
-	Output JSON:
+	}```
+	###Output JSON
+	```
 	{
 		"result": true,
 		"message" : "Competition ended.",
 		"data" : null
 	}
-	Error GENERAL_ERROR Output JSON:
+	```
+	###Error GENERAL_ERROR Output JSON
+	```
 	{
 		"result": false,
 		"message" : "{Exception message}.",
 		"data" : null
 	}
+	```
 
 4. Competition Ranking
 	Reads the Ranking of the Athletes in a Competition.
 	URL: http://localhost/competition/{id}/ranking/ [GET]
-	Output JSON:
+	###Output JSON
+	```
 	{
 		"result": true,
 		"message" : null,
@@ -105,12 +125,15 @@ This API is used to access and append game results of the Olympic Games.
 			{ "1239" : 4.3 }
 		}
 	}
-	Error GENERAL_ERROR Output JSON:
+	```
+	###Error GENERAL_ERROR Output JSON
+	```
 	{
 		"result": false,
 		"message" : "{Exception message}.",
 		"data" : null
 	}
+	```
 
 
 ## Worklog
@@ -125,12 +148,13 @@ This API is used to access and append game results of the Olympic Games.
 - Specify exceptions for each situations.
 - Create a data access layer to use a cache application for example.
 - Check if the competition is already finished on the competition/finish method.
-	Error COMPETITION_ALREADY_ENDED Output JSON:
+```
 	{
 		"result": false,
 		"message" : "Competition already ended",
 		"data" : null
 	}
+	```
 
 - Define response Content-Type header as application/json.
 - Specify a rounding type (use greater, use lower etc).
@@ -141,10 +165,12 @@ This API is used to access and append game results of the Olympic Games.
 - Change ranking to use MongoDB aggregate function.
 - Validate all services inputs (type, nulls, excedding attrs)
 - Append competition info in ranking 
+```
 	"competition" : {
 		"id" : "1233",
 		"name" : "100m",
 		"unit" : "s"
 	}
+	```
 - Validate type in competition/add. Now it only validates if value equals "greater" to create a "greater wins" competition, otherwise it will create a "lower wins" competition
 - Default message for general Sinatra errors (accessing a method that doesn't exist) 
