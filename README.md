@@ -39,7 +39,8 @@ This API is used to access and append game results of the Olympic Games.
 		"result": false,
 		"message" : "{Exception message}.",
 		"data" : ""
-	}```
+	}
+	```
 
 2. Competition Result Add
 	Appends new Result of an Athlete in a Competition.
