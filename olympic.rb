@@ -14,6 +14,12 @@ post '/competition/add/' do
     competition.unit = params["unit"]
     competition.rounds = params["rounds"]
 
+    if params["type"] == "greater"
+      competition.type = "greater"
+    else
+      competition.type = "lower"
+    end
+
     response = competition.save
     "{\"result\":true, \"message\":\"Competition created.\", \"data\":#{response.to_json}}"
 
@@ -56,8 +62,10 @@ end
 
 get '/competition/:id/ranking/' do
   begin
+
     competition = Competition.new
     competition.id = params['id']
+    competition.find
 
     response = competition.ranking
 

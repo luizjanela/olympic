@@ -17,6 +17,7 @@ This API is used to access and append game results of the Olympic Games.
 		"name": "100m", // Competition name
 		"unit" : "s", // Unit name of the competition (seconds, minutes, goals ...)
 		"rounds" : 3 // Integer that specifies the quantity of rounds. Always will look for the greater result "values"
+		"type" : "greater"|"lower" // Greater means that the greater value wins. Lower means the minimum value wins
 	}
 	Output JSON:
 	{
@@ -143,4 +144,6 @@ This API is used to access and append game results of the Olympic Games.
 		"id" : "1233",
 		"name" : "100m",
 		"unit" : "s"
-	},
+	}
+- Validate type in competition/add. Now it only validates if value equals "greater" to create a "greater wins" competition, otherwise it will create a "lower wins" competition
+- Default message for general Sinatra errors (accessing a method that doesn't exist) 
