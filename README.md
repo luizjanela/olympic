@@ -7,7 +7,7 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 
 ## Services
 
-1. Competition Create
+** 1. Competition Create **
 
 * http://localhost/competition/add/ [POST]
 
@@ -48,7 +48,9 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 
 
 
-2. Competition Athlete Result Add. Appends new Result of an Athlete to a Competition.
+** 2) Competition Athlete Result Add **
+
+* Appends new Result of an Athlete to a Competition.
 
 * http://localhost/competition/result/add/ [POST]
 
@@ -104,7 +106,9 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 
 
 
-3. End Competition. No new Result can be appended. 
+** 3) End Competition **
+
+* No new Result can be appended.
 
 * http://localhost/competition/finish/ [POST]
 
@@ -138,7 +142,9 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 
 
 
-4. Competition Ranking. Reads the Ranking of the Athletes in a Competition.
+** 4) Competition Ranking **
+
+* Reads the Ranking of the Athletes in a Competition.
 
 * http://localhost/competition/{id}/ranking/ [GET]
 
