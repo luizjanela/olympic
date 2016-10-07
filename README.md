@@ -7,12 +7,12 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 
 ## Services
 
-1. Competition Create
+Competition Create
 
 * http://localhost/competition/add/ [POST]
 
 * Input JSON
-```json
+```
 {
 	"name": "100m", // Competition name
 	"unit" : "s", // Unit name of the competition (seconds, minutes, goals ...)
@@ -23,7 +23,7 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 
 * Output JSON
 
-```json
+```
 {
 	"result": true,
 	"message" : "Competition created.",
@@ -38,7 +38,7 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 
 * Error GENERAL_ERROR Output JSON
 
-```json
+```
 {
 	"result": false,
 	"message" : "{Exception message}.",
@@ -48,117 +48,117 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 
 2. Competition Athlete Result Add. Appends new Result of an Athlete to a Competition.
 
-	* http://localhost/competition/result/add/ [POST]
+* http://localhost/competition/result/add/ [POST]
 
-	* Input JSON
+* Input JSON
 
-	```json
-	{
-		"competition": "1233", // Competition Id returned in create
-		"athlete" : "1234", // Athlete Id returned in create
-		"value" : 10.03 // Float value of the result athlete made
-	}
-	```
+```
+{
+	"competition": "1233", // Competition Id returned in create
+	"athlete" : "1234", // Athlete Id returned in create
+	"value" : 10.03 // Float value of the result athlete made
+}
+```
 
-	* Output JSON
+* Output JSON
 
-	```json
-	{
-		"result": true,
-		"message" : "Result added.",
-		"data" : null
-	}
-	```
-	
-	* Error COMPETITION_ENDED Output JSON
+```
+{
+	"result": true,
+	"message" : "Result added.",
+	"data" : null
+}
+```
 
-	```json
-	{
-		"result": false,
-		"message" : "Competition already ended.",
-		"data" : null
-	}
-	```
-	
-	* Error ROUNDS_EXCEDDED Output JSON
+* Error COMPETITION_ENDED Output JSON
 
-	```json
-	{
-		"result": false,
-		"message" : "All rounds of this athlete already have been played.",
-		"data" : null
-	}
-	```
-	
-	* Error GENERAL_ERROR Output JSON
+```
+{
+	"result": false,
+	"message" : "Competition already ended.",
+	"data" : null
+}
+```
 
-	```json
-	{
-		"result": false,
-		"message" : "{Exception message}.",
-		"data" : null
-	}
-	```
+* Error ROUNDS_EXCEDDED Output JSON
+
+```
+{
+	"result": false,
+	"message" : "All rounds of this athlete already have been played.",
+	"data" : null
+}
+```
+
+* Error GENERAL_ERROR Output JSON
+
+```
+{
+	"result": false,
+	"message" : "{Exception message}.",
+	"data" : null
+}
+```
 
 3. End Competition. No new Result can be appended. 
 
-	* http://localhost/competition/finish/ [POST]
+* http://localhost/competition/finish/ [POST]
 
-	* Input JSON
+* Input JSON
 
-	```json
-	{
-		"competition": "1233" // Competition Id returned in create
-	}
-	```
+```
+{
+	"competition": "1233" // Competition Id returned in create
+}
+```
 
-	* Output JSON
+* Output JSON
 
-	```json
-	{
-		"result": true,
-		"message" : "Competition ended.",
-		"data" : null
-	}
-	```
+```
+{
+	"result": true,
+	"message" : "Competition ended.",
+	"data" : null
+}
+```
 
-	* Error GENERAL_ERROR Output JSON
+* Error GENERAL_ERROR Output JSON
 
-	```json
-	{
-		"result": false,
-		"message" : "{Exception message}.",
-		"data" : null
-	}
-	```
+```
+{
+	"result": false,
+	"message" : "{Exception message}.",
+	"data" : null
+}
+```
 
 4. Competition Ranking. Reads the Ranking of the Athletes in a Competition.
 
-	* http://localhost/competition/{id}/ranking/ [GET]
-	
-	* Output JSON
+* http://localhost/competition/{id}/ranking/ [GET]
 
-	```json
-	{
-		"result": true,
-		"message" : null,
-		"data" : {
-			{ "1234" : 9.87 }, // {Athlet id} : {athlet best result}
-			{ "1233" : 5.8 },
-			{ "1239" : 4.3 }
-		}
+* Output JSON
+
+```
+{
+	"result": true,
+	"message" : null,
+	"data" : {
+		{ "1234" : 9.87 }, // {Athlet id} : {athlet best result}
+		{ "1233" : 5.8 },
+		{ "1239" : 4.3 }
 	}
-	```
+}
+```
 
-	* Error GENERAL_ERROR Output JSON
+* Error GENERAL_ERROR Output JSON
 
-	```json
-	{
-		"result": false,
-		"message" : "{Exception message}.",
-		"data" : null
-	}
-	```
+```
+{
+	"result": false,
+	"message" : "{Exception message}.",
+	"data" : null
+}
+```
 
 
 ## Running Tests (rspec)
