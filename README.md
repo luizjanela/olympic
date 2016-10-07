@@ -22,6 +22,7 @@ This API is used to access and append game results of the Olympic Games.
 	```
 
 	* Output JSON
+
 	```
 	{
 		"result": true,
@@ -36,6 +37,7 @@ This API is used to access and append game results of the Olympic Games.
 	```
 
 	* Error GENERAL_ERROR Output JSON
+
 	```
 	{
 		"result": false,
@@ -49,6 +51,7 @@ This API is used to access and append game results of the Olympic Games.
 	* http://localhost/competition/result/add/ [POST]
 
 	* Input JSON
+
 	```
 	{
 		"competition": "1233", // Competition Id returned in create
@@ -58,6 +61,7 @@ This API is used to access and append game results of the Olympic Games.
 	```
 
 	* Output JSON
+
 	```
 	{
 		"result": true,
@@ -67,6 +71,7 @@ This API is used to access and append game results of the Olympic Games.
 	```
 	
 	* Error COMPETITION_ENDED Output JSON
+
 	```
 	{
 		"result": false,
@@ -76,6 +81,7 @@ This API is used to access and append game results of the Olympic Games.
 	```
 	
 	* Error ROUNDS_EXCEDDED Output JSON
+
 	```
 	{
 		"result": false,
@@ -85,6 +91,7 @@ This API is used to access and append game results of the Olympic Games.
 	```
 	
 	* Error GENERAL_ERROR Output JSON
+
 	```
 	{
 		"result": false,
@@ -98,6 +105,7 @@ This API is used to access and append game results of the Olympic Games.
 	* http://localhost/competition/finish/ [POST]
 
 	* Input JSON
+
 	```
 	{
 		"competition": "1233" // Competition Id returned in create
@@ -105,6 +113,7 @@ This API is used to access and append game results of the Olympic Games.
 	```
 
 	* Output JSON
+
 	```
 	{
 		"result": true,
@@ -114,6 +123,7 @@ This API is used to access and append game results of the Olympic Games.
 	```
 
 	* Error GENERAL_ERROR Output JSON
+
 	```
 	{
 		"result": false,
@@ -127,6 +137,7 @@ This API is used to access and append game results of the Olympic Games.
 	* http://localhost/competition/{id}/ranking/ [GET]
 	
 	* Output JSON
+
 	```
 	{
 		"result": true,
@@ -140,6 +151,7 @@ This API is used to access and append game results of the Olympic Games.
 	```
 
 	* Error GENERAL_ERROR Output JSON
+
 	```
 	{
 		"result": false,
@@ -147,18 +159,23 @@ This API is used to access and append game results of the Olympic Games.
 		"data" : null
 	}
 	```
+
+
 ## Running Tests (rspec)
 
 Just execute the following command on the project root:
+
 ```
 bundle exec rspec basic.rb
 ```
+
 
 ## Worklog
 
 1. Ruby + GIT + Mongo + Sinatra configuration. Basic and mocked services created. 5h @ 2016/10/01
 2. Fixes in services responses. Multiples rounds feature. Best results ranking. Documentation improvements. 2:30h @ 2016/10/03
 3. "Lower wins" competition type. Documentation tuning. 1h @ 2016/10/04
+
 
 
 ## Backlog / Improvements
