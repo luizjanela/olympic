@@ -9,42 +9,42 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 
 1. Competition Create
 
-	* http://localhost/competition/add/ [POST]
+* http://localhost/competition/add/ [POST]
 
-	* Input JSON
-	```json
-	{
-		"name": "100m", // Competition name
-		"unit" : "s", // Unit name of the competition (seconds, minutes, goals ...)
-		"rounds" : 3 // Integer that specifies the quantity of rounds. Always will look for the greater result "values"
-		"type" : "greater"|"lower" // Greater means that the greater value wins. Lower means the minimum value wins
+* Input JSON
+```json
+{
+	"name": "100m", // Competition name
+	"unit" : "s", // Unit name of the competition (seconds, minutes, goals ...)
+	"rounds" : 3 // Integer that specifies the quantity of rounds. Always will look for the greater result "values"
+	"type" : "greater"|"lower" // Greater means that the greater value wins. Lower means the minimum value wins
+}
+```
+
+* Output JSON
+
+```json
+{
+	"result": true,
+	"message" : "Competition created.",
+	"data" : {
+		"id" : "1233"
+		"name": "100m",
+		"rounds" : 3,
+		"unit" : "s"
 	}
-	```
+}
+```
 
-	* Output JSON
+* Error GENERAL_ERROR Output JSON
 
-	```
-	{
-		"result": true,
-		"message" : "Competition created.",
-		"data" : {
-			"id" : "1233"
-			"name": "100m",
-			"rounds" : 3,
-			"unit" : "s"
-		}
-	}
-	```
-
-	* Error GENERAL_ERROR Output JSON
-
-	```
-	{
-		"result": false,
-		"message" : "{Exception message}.",
-		"data" : ""
-	}
-	```
+```json
+{
+	"result": false,
+	"message" : "{Exception message}.",
+	"data" : ""
+}
+```
 
 2. Competition Athlete Result Add. Appends new Result of an Athlete to a Competition.
 
@@ -52,7 +52,7 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 
 	* Input JSON
 
-	```
+	```json
 	{
 		"competition": "1233", // Competition Id returned in create
 		"athlete" : "1234", // Athlete Id returned in create
@@ -62,7 +62,7 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 
 	* Output JSON
 
-	```
+	```json
 	{
 		"result": true,
 		"message" : "Result added.",
@@ -72,7 +72,7 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 	
 	* Error COMPETITION_ENDED Output JSON
 
-	```
+	```json
 	{
 		"result": false,
 		"message" : "Competition already ended.",
@@ -82,7 +82,7 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 	
 	* Error ROUNDS_EXCEDDED Output JSON
 
-	```
+	```json
 	{
 		"result": false,
 		"message" : "All rounds of this athlete already have been played.",
@@ -92,7 +92,7 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 	
 	* Error GENERAL_ERROR Output JSON
 
-	```
+	```json
 	{
 		"result": false,
 		"message" : "{Exception message}.",
@@ -106,7 +106,7 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 
 	* Input JSON
 
-	```
+	```json
 	{
 		"competition": "1233" // Competition Id returned in create
 	}
@@ -114,7 +114,7 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 
 	* Output JSON
 
-	```
+	```json
 	{
 		"result": true,
 		"message" : "Competition ended.",
@@ -124,7 +124,7 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 
 	* Error GENERAL_ERROR Output JSON
 
-	```
+	```json
 	{
 		"result": false,
 		"message" : "{Exception message}.",
@@ -138,7 +138,7 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 	
 	* Output JSON
 
-	```
+	```json
 	{
 		"result": true,
 		"message" : null,
@@ -152,7 +152,7 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 
 	* Error GENERAL_ERROR Output JSON
 
-	```
+	```json
 	{
 		"result": false,
 		"message" : "{Exception message}.",
