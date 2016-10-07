@@ -203,7 +203,7 @@ bundle exec rspec tests.rb
 
 ## Backlog / Improvements
 
-- Specify exceptions for each situations.
+- Specify exceptions for each situations. **DONE**
 - Create a data access layer to use a cache application for example.
 - Check if the competition is already finished on the competition/finish method.
 ```
@@ -215,7 +215,7 @@ bundle exec rspec tests.rb
 ```
 
 - Define response Content-Type header as application/json.
-- Specify a rounding type (use greater, use lower etc).
+- Specify a rounding type (use greater, use lower etc). **DONE**
 - Validate qty of rounds (greater than zero and integer) in competition/add.
 
 - Insert list of athlets in competition/add.
@@ -235,3 +235,4 @@ bundle exec rspec tests.rb
 - Define classes for Exception
 - Create tests for Web Services (validates inputs and ouputs)
 - Define authentication for API
+- Create a Class for Mongo Connection. **DONE**
