@@ -210,3 +210,5 @@ bundle exec rspec basic.rb
 - Validate type in competition/add. Now it only validates if value equals "greater" to create a "greater wins" competition, otherwise it will create a "lower wins" competition
 - Default message for general Sinatra errors (accessing a method that doesn't exist) 
 - Define classes for Exception
+- Create tests for Web Services (validates inputs and ouputs)
+- Define authentication for API
