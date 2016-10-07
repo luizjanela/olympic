@@ -1,6 +1,7 @@
 #file competition.rb
 
 require 'json/ext'
+require 'mongo'
 
 class Competition  
 
@@ -60,7 +61,7 @@ class Competition
 
   def find
     # Read raking from MongoDB 
-    client = Mongo::Client.new('mongodb://127.0.0.1:27017/olympic')
+    client = OlympicDatabase::client
     competition = client[:competition].find({ _id: BSON::ObjectId(@id) }).first
 
     if !competition
@@ -74,28 +75,31 @@ class Competition
     @ended = competition['ended']
     @rounds = competition['rounds']
     @type = competition['type']
+    @name = competition['name']
 
     return competition
   end
 
   def finish
     # Finishes the competition, no new result can be added
-    client = Mongo::Client.new('mongodb://127.0.0.1:27017/olympic')
+    client = OlympicDatabase::client
     result = client[:competition].update_one({_id: BSON::ObjectId(@id)},{"$set" => {ended: true}})
     return result
   end
 
   def save
     # Save competition
-    client = Mongo::Client.new('mongodb://127.0.0.1:27017/olympic')
+    client = OlympicDatabase::client
     result = client[:competition].insert_one({ name: @name, unit: @unit, rounds: @rounds, type: @type })
     puts result
+    @id = result.inserted_id.to_s
+
     return { id: result.inserted_id.to_s, name: @name, unit: @unit, rounds: @rounds, type: @type }
   end
   
   def ranking
     # Read ranking from MongoDB 
-    client = Mongo::Client.new('mongodb://127.0.0.1:27017/olympic')
+    client = OlympicDatabase::client
 
     if @type == "greater"
       valueOrder = -1 # DESC

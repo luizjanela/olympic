@@ -187,3 +187,4 @@ This API is used to access and append game results of the Olympic Games.
 ```
 - Validate type in competition/add. Now it only validates if value equals "greater" to create a "greater wins" competition, otherwise it will create a "lower wins" competition
 - Default message for general Sinatra errors (accessing a method that doesn't exist) 
+- Define classes for Exception

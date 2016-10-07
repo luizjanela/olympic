@@ -1,6 +1,7 @@
 #file competition.rb
 
 require 'json/ext'
+require_relative 'olympicdatabase'
 
 class Result  
   def initialize
@@ -31,7 +32,7 @@ class Result
 
   def roundsAlreadyPlayer(competitionId, athletId)
     # Read ranking from MongoDB 
-    client = Mongo::Client.new('mongodb://127.0.0.1:27017/olympic')
+    client = OlympicDatabase::client
     rounds = client[:result].find({ competition: competitionId, athlet: athletId }).count()
 
     puts "Rounds already played #{rounds}"
@@ -54,10 +55,10 @@ class Result
     puts "Rounds " + competition.rounds.to_s
 
     if roundsAlreadyPlayed >= competition.rounds
-      raise 'All rounds of this athlet already have been played.' 
+      raise 'All rounds of this athlet already have been played.'
     end
     
-    client = Mongo::Client.new('mongodb://127.0.0.1:27017/olympic')
+    client = OlympicDatabase::client
     result = client[:result].insert_one({ competition: @competition, athlet: @athlet, value: @value })
 
     return { id: result.inserted_id.to_s, competition: @competition, athlet: @athlet, value: @value }
