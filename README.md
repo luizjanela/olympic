@@ -189,6 +189,7 @@ bundle exec rspec tests.rb
 1. Ruby + GIT + Mongo + Sinatra configuration. Basic and mocked services created. 5h @ 2016/10/01
 2. Fixes in services responses. Multiples rounds feature. Best results ranking. Documentation improvements. 2:30h @ 2016/10/03
 3. "Lower wins" competition type. Documentation tuning. 1h @ 2016/10/04
+4. Rspec models/classes tests. Documentation tuning. 3h @ 2016/10/06
 
 
 
