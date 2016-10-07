@@ -139,7 +139,7 @@ describe Competition do
 		end
 
 		context "given a 'lower wins' competition with many results" do
-			it "lowest result of each athlet is present listed on ranking on a ASC order" do
+			it "has the lowest result of each athlet ranked on a ASC order" do
 
 				@result = Result.new
 			    @result.competition = @competition.id
@@ -189,7 +189,7 @@ describe Competition do
 		end
 
 		context "given a 'greater wins' competition with many results" do
-			it "greatest result of each athlet is present listed on ranking on a DESC order" do
+			it "has the greatest result of each athlet ranked on a DESC order" do
 
 				@result = Result.new
 			    @result.competition = @competition.id
