@@ -147,7 +147,12 @@ This API is used to access and append game results of the Olympic Games.
 		"data" : null
 	}
 	```
+## Running Tests (rspec)
 
+Just execute the following command on the project root:
+```
+bundle exec rspec basic.rb
+```
 
 ## Worklog
 
