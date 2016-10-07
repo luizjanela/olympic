@@ -12,7 +12,7 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 	* http://localhost/competition/add/ [POST]
 
 	* Input JSON
-	```
+	```json
 	{
 		"name": "100m", // Competition name
 		"unit" : "s", // Unit name of the competition (seconds, minutes, goals ...)
