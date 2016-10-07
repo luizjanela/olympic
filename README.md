@@ -1,11 +1,11 @@
 # Olympic Games API
 
-## Purpose 
+## Definition 
 
-This API is used to access and append game results of the Olympic Games.
+Olympic Games API is a HTTP service based project for handling Olympic Competitions, Results and Rankings.
 
 
-## Web Services
+## Services
 
 1. Competition Create
 
@@ -46,7 +46,7 @@ This API is used to access and append game results of the Olympic Games.
 	}
 	```
 
-2. Competition Athlet Result Add. Appends new Result of an Athlete in a Competition.
+2. Competition Athlete Result Add. Appends new Result of an Athlete to a Competition.
 
 	* http://localhost/competition/result/add/ [POST]
 
@@ -85,7 +85,7 @@ This API is used to access and append game results of the Olympic Games.
 	```
 	{
 		"result": false,
-		"message" : "All rounds of this athlet already have been played.",
+		"message" : "All rounds of this athlete already have been played.",
 		"data" : null
 	}
 	```
@@ -100,7 +100,7 @@ This API is used to access and append game results of the Olympic Games.
 	}
 	```
 
-3. End Competition. No new Result can be added. 
+3. End Competition. No new Result can be appended. 
 
 	* http://localhost/competition/finish/ [POST]
 
@@ -163,10 +163,10 @@ This API is used to access and append game results of the Olympic Games.
 
 ## Running Tests (rspec)
 
-Just execute the following command on the project root:
+Just execute the following command at project's root:
 
 ```
-bundle exec rspec basic.rb
+bundle exec rspec tests.rb
 ```
 
 

@@ -1,4 +1,4 @@
-# basicspec.rb
+# tests.rb
 
 require_relative "competition"
 require_relative "result"
