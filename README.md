@@ -174,6 +174,14 @@ Olympic Games API is a HTTP service based project for handling Olympic Competiti
 }
 ```
 
+## Starting Server
+
+To start the Sinatra Application, execute the following command at project's root:
+
+```
+ruby olympic.rb
+```
+
 
 ## Running Tests (rspec)
 
